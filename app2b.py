@@ -6,6 +6,8 @@ from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
+from sentence_transformers import SentenceTransformer
+
 
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
 
@@ -21,7 +23,9 @@ chunks = [c for c in chunks if len(c.page_content) < 1000]
 texts = [doc.page_content for doc in chunks]
 
 # Embedding bằng HuggingFace
-embedding = HuggingFaceEmbeddings()
+#embedding = HuggingFaceEmbeddings()
+model = SentenceTransformer("all-MiniLM-L6-v2")
+embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 vectordb = None
 
 try:
