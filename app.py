@@ -4,6 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 import os
+from langchain.embeddings import HuggingFaceEmbeddings
 
 # Lấy API key từ Streamlit Secrets và ép buộc cấu hình môi trường
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
@@ -21,10 +22,12 @@ chunks = [c for c in chunks if len(c.page_content) < 1000]
 texts = [doc.page_content for doc in chunks]
 
 # Embedding với kiểm tra toàn bộ
-embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+#embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embedding = HuggingFaceEmbeddings()
 
 try:
-    vectors = embedding.embed_documents(texts)
+    #vectors = embedding.embed_documents(texts)
+    #vectordb = FAISS.from_texts(texts, embedding)    
     vectordb = FAISS.from_texts(texts, embedding)
 except Exception as e:
     st.error(f"❌ Lỗi khi tạo vector DB (Gemini Embedding): {e}")
