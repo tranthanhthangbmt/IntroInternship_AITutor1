@@ -1,7 +1,7 @@
 streamlit==1.45.1
 langchain
 langchain-community
-google-generativeai
-faiss-cpu
-tiktoken
 langchain-google-genai
+faiss-cpu
+google-generativeai
+tiktoken
