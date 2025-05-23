@@ -26,7 +26,8 @@ texts = [doc.page_content for doc in chunks]
 #embedding = HuggingFaceEmbeddings()
 model = SentenceTransformer("all-MiniLM-L6-v2")
 #embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 vectordb = None
 
 try:
