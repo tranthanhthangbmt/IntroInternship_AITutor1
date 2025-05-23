@@ -51,3 +51,4 @@ if query:
             answer = llm.invoke(prompt)
             st.markdown(f"**📌 Trả lời:** {answer.content}")
         except Exception as e:
+            st.error(f"❌ Lỗi truy vấn Gemini: {e}")
