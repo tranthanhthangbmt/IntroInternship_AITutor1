@@ -34,8 +34,13 @@ for i, chunk in enumerate(chunks):
         st.warning(f"Lỗi batch {i}: {e}")
 
 vectordb = None
-if vectors:
-    vectordb = FAISS.__from(texts, vectors)
+if vectors and len(vectors) > 0:
+    try:
+        vectordb = FAISS.__from(texts, vectors)
+    except Exception as e:
+        st.error(f"Không thể tạo FAISS index: {e}")
+else:
+    st.warning("Tất cả các đoạn embedding đều thất bại. Vector DB sẽ không được tạo.")
 
 # Gemini LLM
 llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
