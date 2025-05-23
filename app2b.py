@@ -54,7 +54,5 @@ if query and vectordb:
         st.markdown(f"**📌 Trả lời:** {answer.content}")
     except Exception as e:
         st.error(f"❌ Lỗi khi gọi Gemini API: {e}")
-
-    st.markdown(f"**📌 Trả lời:** {answer.content}")
 elif query:
     st.warning("⚠ Không thể truy vấn vì vector DB chưa được khởi tạo.")
