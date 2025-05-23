@@ -29,7 +29,7 @@ if uploaded_file and query:
         # Tạo embedding
         try:
             st.info("📡 Đang tạo FAISS vector DB...")
-            embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
             vectordb = FAISS.from_texts(texts, embeddings)
         except Exception as e:
             st.error(f"❌ Lỗi tạo FAISS DB: {e}")
