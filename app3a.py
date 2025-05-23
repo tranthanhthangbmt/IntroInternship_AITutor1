@@ -32,8 +32,11 @@ with st.spinner("📂 Đang tải dữ liệu..."):
 # Tạo embedding và FAISS
 with st.spinner("📡 Đang tạo FAISS vector DB..."):
     try:
+        # embedding = HuggingFaceEmbeddings(
+        #     model_name="sentence-transformers/all-MiniLM-L6-v2", device="cpu"
+        # )
         embedding = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2", device="cpu"
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
         )
         vectordb = FAISS.from_texts(texts, embedding)
     except Exception as e:
