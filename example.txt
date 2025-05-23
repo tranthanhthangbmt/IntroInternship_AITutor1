@@ -1,212 +1,37 @@
- 
-BỘ GIÁO DỤC VÀ ĐÀO TẠO
-TRƯỜNG ĐẠI HỌC ĐÔNG Á
-	CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
-Độc lập - Tự do - Hạnh phúc
+BỘ GIÁO DỤC VÀ ĐÀO TẠO – TRƯỜNG ĐẠI HỌC ĐÔNG Á
+CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM – Độc lập - Tự do - Hạnh phúc
 
-ĐỀ CƯƠNG CHI TIẾT HỌC PHẦN
-THỰC TẬP NHẬN THỨC
-< INTRODUCTORY INTERNSHIP>
-Mã số HP/Course Code:< INFO2138>
-1.	Thông tin chung về học phần
-1.1. Tên học phần: Thực tập nhận thức
-                  < Introductory Internship >
-1.2. Số tín chỉ: 02	1.3. Thời gian thực tập: 
- 10 tuần
-1.4. Thời lượng và phân bổ nội dung	
-a)	Thuyết 	Số giờ:  0
-A1. Lý thuyết	Số giờ: 0
-A2. Chuyên đề (nếu có)	Số giờ: 0
-b)	Thực hành ứng dụng	Số giờ: 0
-B1. Thí nghiệm/Thực hành	Số giờ: 0
-B2. Bài tập lớn/đồ, đề án	Giờ: 0
-B3. Thực tập	Thời gian thực tập:  10 tuần
-c) Hoạt động tự học 
-(tự học/trả lời câu hỏi, thí nghiệm/dự án, đọc/nghiên cứu tài liệu)	
-1.5.  Học phần tiên quyết: 
-2.	Mục tiêu học phần: 
-Học phần “Thực tập nhận thức” nhằm giúp sinh viên bước đầu tiếp cận với môi trường làm việc thực tế trong lĩnh vực chuyên ngành, qua đó hình thành tư duy nghề nghiệp, rèn luyện thái độ và kỹ năng cần thiết để sẵn sàng cho các đợt thực tập chuyên sâu và công việc trong tương lai.
-3.	Chuẩn đầu ra của HP
-Bảng 3.1. Chuẩn đầu ra (CĐR) của HP
-Sau khi học xong học phần, sinh viên có khả năng:
-Mã CĐR  HP	Chuẩn đầu ra HP (CLO)
-(1)	(2)
-CLO1	Trình bày được mô hình tổ chức, chức năng, nhiệm vụ cơ bản của các bộ phận trong doanh nghiệp; tuân thủ nội quy và thể hiện được tác phong làm việc chuyên nghiệp.
-CLO2	Có năng lực học tập và nghiên cứu theo hướng dẫn của doanh nghiệp/giảng viên hướng dẫn.
-CLO3	Vận dụng kiến thức học được tại doanh nghiệp để làm được sản phẩm/đề xuất giải pháp kỹ thuật/dịch vụ về sản phẩm theo yêu cầu đặt ra của doanh nghiệp.
+ĐỀ CƯƠNG HỌC PHẦN: THỰC TẬP NHẬN THỨC (INFO2138)
+Số tín chỉ: 2 | Thời gian: 10 tuần
 
-4.	Mối liên hệ giữa CĐR HP (CLO) với CĐR CTĐT (PLO) 
-Bảng 4.1.Mối liên hệ của CĐR HP (CLO) đến CĐR của CTĐT (PLO)
-PLO	1	2	3	4	5	6	7	8	9
-CLO1	M								
-CLO2	R								
-CLO3	R								
-Chung	M,A								
-      Giải thích:  I= introduced; R= Reinforced/Opportunity to practice; M = Mastery at exit level, A: assessed
-5.	Đánh giá HP
-5.1. Phương pháp, hình thức kiểm tra - đánh giá kết quả học tập của HP
-Các thành phần đánh giá	Trọng số
-(%)	Phương pháp đánh giá	Công cụ đánh giá	Liên quan đến CLO	Trọng số CLO 
-(%)	Đánh giá CLO	Đo lường đạt PLO/PI
-(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)
-A1. Chuyên cần	10%	Đánh giá mức độ tham gia đầy đủ, đúng giờ, tuân thủ nội quy doanh nghiệp và quy định của học phần thực tập.	Rubric	CLO1	100%	CLO1	PLO1
-A2. Thường xuyên	30%	Đánh giá chất lượng ghi chép nhật ký thực tập hàng tuần: tính trung thực, nội dung quan sát, mô tả công việc, kỹ năng ghi nhận.	Rubric	CLO1,
-CLO2, CLO3
-	CLO1: 40%,
-CLO2: 30%, CLO3: 30%
-		PLO1
-A3. Báo cáo cuối kỳ	50%	- Cấu trúc & hình thức: đúng mẫu, trình bày rõ ràng, logic. 
-- Nội dung: mô tả trải nghiệm thực tế, phản tư cá nhân, kỹ năng và nhận thức nghề nghiệp. 
-- Thái độ học tập: thể hiện qua tính trung thực, tinh thần cầu tiến trong báo cáo.	Rubric	CLO1,
-CLO2, CLO3
-	CLO1: 40%,
-CLO2: 30%, CLO3: 30%
-		PLO1
-A4. Đánh giá từ doanh nghiệp	10%	Phiếu nhận xét từ đơn vị thực tập: thái độ, giao tiếp, tinh thần học hỏi, chấp hành nội quy.	Mẫu nhận xét	CLO1,
-CLO2, CLO3
-	CLO1: 40%,
-CLO2: 30%, CLO3: 30%	CLO1, CLO2,
-CLO3	PLO1
-5.2. Chính sách đối với HP
-	Sinh viên phải tham gia tối thiểu 75% thời lượng thực tập (tương đương ít nhất 45/60 giờ tại doanh nghiệp) để đủ điều kiện được đánh giá kết thúc học phần. Nếu vắng mặt quá 25% (tức từ 16 giờ trở lên) mà không có lý do chính đáng và không được giảng viên hướng dẫn xác nhận, sinh viên sẽ không đủ điều kiện nộp báo cáo và không được công nhận kết quả học phần.
-	Báo cáo thực tập và nhật ký hằng tuần là hai tài liệu bắt buộc. Sinh viên không nộp đúng hạn, có dấu hiệu sao chép, hoặc làm hình thức sẽ bị trừ điểm hoặc bị đánh giá là không đạt.
-	Công cụ đánh giá chính là rubric theo từng tiêu chí, có thể kèm theo mẫu minh họa dành cho giảng viên hướng dẫn và đơn vị thực tập để đảm bảo tính khách quan và minh bạch.
-	Sinh viên phải cam kết chấp hành nội quy thực tập, bảo mật thông tin doanh nghiệp, và thể hiện thái độ nghiêm túc, tác phong chuyên nghiệp, tôn trọng đơn vị tiếp nhận. Vi phạm sẽ bị xử lý theo quy định của nhà trường.
-	Trong trường hợp nghỉ thực tập đột xuất, thay đổi địa điểm thực tập, hoặc gặp sự cố, sinh viên phải chủ động báo cáo kịp thời với giảng viên hướng dẫn và Khoa Công nghệ Thông tin để được hỗ trợ và xử lý phù hợp.
-Các tài liệu sinh viên bắt buộc phải nộp gồm: nhật ký thực tập, báo cáo thực tập (theo mẫu), bản tự đánh giá, phiếu nhận xét từ doanh nghiệp, và biên bản cam kết.
-6.	Kế hoạch và nội dung giảng dạy HP (8 tuần)
-Bảng 6.1. Kế hoạch và nội dung giảng dạy của HP theo tuần
-Tuần	Nội dung bài học	Số giờ	Kết quả của bài học (CLO)	Liên quan quan đến CLO	Phương pháp giảng dạy	Hoạt động học tập của học sinh	Đánh giá
-(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)
-	 Tìm hiểu về doanh nghiệp thực tập: cơ cấu tổ chức, nội quy, văn hóa công sở, bộ phận CNTT.	7.5		CLO1	- Giảng viên phổ biến, hướng dẫn định hướng 
-- Hướng dẫn sinh viên liên hệ và lựa chọn doanh nghiệp 
-- Tư vấn đề tài phù hợp năng lực cá nhân	- Tham dự lớp, nghe phổ biến nội dung và yêu cầu học phần 
-- Nghiên cứu tài liệu về văn hóa doanh nghiệp, mô hình tổ chức, bộ phận CNTT 
-- Tìm hiểu doanh nghiệp dự kiến thực tập 
-- Liên hệ đơn vị tiếp nhận thực tập 
-- Chủ động trao đổi với giảng viên hướng dẫn về kế hoạch cá nhân	A1 (Chuyên cần) 
-A2 (Báo cáo tuần đầu: thông tin đơn vị, mục tiêu cá nhân, kế hoạch sơ bộ)
-2	Lựa chọn bài toán hoặc nội dung quan sát thực tiễn tại doanh nghiệp
-- Khám phá các hướng phát triển trong lĩnh vực CNTT
-- Xác định định hướng quan sát/phân tích cá nhân
-- (Nếu có nhóm): tổ chức nhóm, đăng ký đề tài chung	7.5	 	CLO2,
-CLO3	- Giảng viên hướng dẫn cách xác định bài toán thực tiễn hoặc chủ đề quan sát phù hợp với môi trường doanh nghiệp 
-- Gợi ý cách viết mô tả bài toán và kế hoạch làm việc sơ bộ	- Tham khảo các mô hình thực tiễn tại doanh nghiệp 
-- Thảo luận cùng bạn học (nếu làm theo nhóm) để thống nhất nội dung thực tập 
-- Viết bản mô tả ngắn về bài toán, vấn đề, hoặc quy trình dự kiến quan sát 
-- Gặp giảng viên trao đổi, phản biện và điều chỉnh nội dung đã chọn	A1 (Chuyên cần) 
-A2 (Báo cáo tuần 1: thông tin đơn vị thực tập, định hướng mục tiêu cá nhân, kế hoạch sơ bộ 10 tuần)
-3	 Quan sát hoạt động của bộ phận kỹ thuật tại doanh nghiệp
-- Lập trình, quản trị hệ thống, kiểm thử phần mềm, hỗ trợ kỹ thuật,...
-- Nhận diện các vị trí công việc trong quy trình công nghệ	7.5	CLO2
-CLO3	CLO2,
-CLO3	- Hướng dẫn cách ghi nhận thông tin thực tế thông qua quan sát 
-- Gợi ý khung phân tích: vai trò, nhiệm vụ, tương tác giữa các vị trí trong doanh nghiệp	- Quan sát trực tiếp hoạt động của các bộ phận chuyên môn (hoặc tìm hiểu gián tiếp nếu không được trực tiếp tham gia) 
-- Ghi chép nhật ký công việc theo từng vị trí quan sát được 
-- Phỏng vấn hoặc trao đổi nhanh với nhân viên (nếu có thể) để hiểu thêm nhiệm vụ và quy trình 
-- So sánh với kiến thức lý thuyết đã học	A1 (Chuyên cần) 
-A2 (Nhật ký tuần 3: mô tả ít nhất 2 vị trí kỹ thuật, công việc điển hình, quy trình phối hợp)
-4	 Ghi chép nhật ký kỹ thuật 
-– Phản ánh nội dung đã quan sát 
-- Tổng hợp thông tin thu nhận được 
-- Bắt đầu phân tích, phản tư ban đầu về quy trình, công việc, con người	7.5	CLO2
-CLO3	CLO2
-CLO3	- Hướng dẫn cách viết nhật ký kỹ thuật chi tiết, khoa học 
-- Giới thiệu mẫu phản tư: “Tôi đã học được gì?”, “Tôi thấy điều gì thú vị/khác biệt?” 
-- Nhận xét báo cáo tuần trước của sinh viên để điều chỉnh cách trình bày	- Rà soát các nội dung đã quan sát trong 3 tuần đầu 
-- Ghi nhật ký thực tập theo mẫu: mô tả công việc, công cụ, kỹ năng sử dụng, cách phối hợp trong nhóm 
-- Viết phản hồi cá nhân: điều đã học được, điểm mới, khác biệt giữa lý thuyết và thực tế 
-- Gặp giảng viên để được góp ý trực tiếp (nếu có). 	A2 (Nhật ký tuần 4: ghi chép kỹ thuật + đoạn phản tư tối thiểu 200 từ về nội dung quan sát và trải nghiệm cá nhân)
-5	Giao tiếp, làm việc nhóm tại doanh nghiệp 
-- Quan sát quy trình phối hợp giữa các thành viên trong nhóm kỹ thuật 
-- Giao tiếp trong môi trường công sở (email, trao đổi trực tiếp, họp nhóm...)		7.5	CLO2
-CLO3	CLO2
-CLO3	- Giảng viên hướng dẫn cách giao tiếp chuyên nghiệp trong doanh nghiệp (online/offline) 
-- Gợi ý các tình huống giao tiếp thực tế: trao đổi nhiệm vụ, trình bày kết quả, hỏi đáp kỹ thuật,... 
-- Phản biện về vai trò của teamwork trong các dự án thực tế	- Quan sát và mô tả cách các thành viên trong doanh nghiệp giao tiếp, phối hợp 
-- Ghi nhận cách tổ chức họp nhóm, quản lý công việc (nếu có sử dụng công cụ như Trello, Jira, Slack,...)
-- Thực hành viết email trao đổi công việc hoặc ghi chú cuộc họp (giả định hoặc thực tế) 
-- Viết đoạn phản hồi cá nhân về vai trò của giao tiếp & teamwork trong công việc	A2 (Nhật ký tuần 5: mô tả cách giao tiếp và làm việc nhóm tại doanh nghiệp; ghi lại tình huống điển hình + phản tư cá nhân)
-6	Tìm hiểu công cụ, nền tảng và quy trình kỹ thuật cụ thể tại doanh nghiệp 
-- Ví dụ: Git, GitHub, Visual Studio Code, MySQL, Jira, Trello, Docker,... 
-- Kết nối với kiến thức đã học tại trường	7.5	CLO2
-CLO3	CLO2
-CLO3	- Hướng dẫn cách ghi chép và phân tích công cụ kỹ thuật theo tiêu chí: mục đích 
-– cách sử dụng – vai trò trong quy trình 
-- Gợi ý khung phản tư: "Mình đã từng học/biết công cụ này ở đâu?", "Thực tế khác gì so với lý thuyết?"	- Ghi nhận các công cụ, nền tảng, quy trình mà doanh nghiệp đang sử dụng 
-- Chọn tối thiểu 1 công cụ quen thuộc và 1 công cụ mới để mô tả chi tiết 
-- So sánh giữa kiến thức đã học tại trường và thực tế sử dụng tại doanh nghiệp 
-- Viết nhật ký phân tích công cụ và bài học rút ra	A2 (Nhật ký tuần 6: mô tả và phân tích ít nhất 2 công cụ/nền tảng thực tế tại doanh nghiệp; phản tư về sự khác biệt với lý thuyết)
-7	Phân tích quy trình/dự án hoặc tổ chức doanh nghiệp qua bài toán đã chọn 
-- Tổng hợp thông tin từ các tuần trước 
-- Bước đầu rút ra nhận xét, đánh giá ban đầu về cách doanh nghiệp vận hành, giải quyết vấn đề	7.5	CLO2
-CLO3	CLO2
-CLO3	- Hướng dẫn sinh viên phân tích bài toán đã quan sát dưới góc nhìn cá nhân 
-- Gợi ý mô hình mô tả quy trình: sơ đồ, bảng phân tích nhiệm vụ, dòng công việc,... 
-- Hướng dẫn cách viết phần "Phân tích" trong báo cáo cuối kỳ	- Rà soát toàn bộ nhật ký từ tuần 1–6 
-- Tóm tắt lại nội dung bài toán hoặc quá trình đã theo dõi 
-- Phân tích cấu trúc tổ chức, vai trò các bộ phận liên quan, công cụ hỗ trợ 
-- Viết bản phân tích sơ bộ về bài toán hoặc quy trình doanh nghiệp đang thực hiện 
-- Phản hồi với giảng viên để được điều chỉnh, góp ý	A2 (Nhật ký tuần 7: bản tổng hợp và phân tích sơ bộ bài toán hoặc quy trình; thể hiện tư duy cá nhân và mức độ hiểu biết thực tế)
-8	Viết bản nháp báo cáo thực tập 
-- Xây dựng cấu trúc báo cáo rõ ràng, hợp lý 
-- Trình bày nội dung theo yêu cầu học phần 
-- Phân biệt giữa mô tả – phân tích – phản tư	7.5	CLO2
-CLO3	CLO2
-CLO3	- Giảng viên hướng dẫn cấu trúc báo cáo thực tập nhận thức: Mở đầu, Nội dung chính, Nhận xét – phản tư cá nhân 
-- Góp ý báo cáo mẫu và cách trình bày thông tin kỹ thuật một cách mạch lạc 
-- Hướng dẫn cách trình bày biểu đồ, ảnh chụp màn hình, quy trình,...	- Xây dựng đề cương chi tiết và nội dung bản nháp báo cáo cá nhân hoặc nhóm (nếu có) 
-- Rà soát các phần: mô tả doanh nghiệp, nội dung quan sát, công cụ kỹ thuật, phân tích và phản tư 
-- Trình bày thông tin theo định dạng chuẩn của học phần 
-- Gửi bản nháp cho giảng viên góp ý và chỉnh sửa	A2 (Bản nháp báo cáo thực tập: đầy đủ cấu trúc, trình bày rõ ràng; thể hiện nội dung quan sát và góc nhìn cá nhân bước đầu)
-9	Hoàn thiện nhật ký và báo cáo thực tập 
-- Rà soát nội dung đã viết - Chỉnh sửa theo góp ý của giảng viên 
-- Bổ sung phản tư tổng thể, nhận định cá nhân về quá trình thực tập	7.5	CLO2
-CLO3	CLO2
-CLO3	- Giảng viên rà soát và phản hồi bản nháp của sinh viên 
-- Hướng dẫn sinh viên tự đánh giá kết quả đạt được so với mục tiêu ban đầu 
-- Tư vấn cách cải thiện phần kết luận và phản tư cá nhân	- Đọc lại toàn bộ nhật ký từ tuần 1–8 để thống nhất nội dung 
-- Hoàn chỉnh báo cáo thực tập theo mẫu chuẩn 
-- Bổ sung phần đánh giá bản thân: kỹ năng học được, nhận thức nghề nghiệp, điểm mạnh/yếu cá nhân 
-- Kiểm tra chính tả, định dạng trình bày, minh họa hình ảnh, biểu đồ (nếu có)	A2 (Bản hoàn chỉnh báo cáo + nhật ký thực tập đầy đủ, logic, có phản tư tổng thể rõ ràng)
-10	Trình bày, nộp báo cáo và tự đánh giá quá trình thực tập 
-- Tổng kết toàn bộ trải nghiệm trong 10 tuần 
-- Trình bày định hướng nghề nghiệp cá nhân 
-- Thu hồ sơ và phản hồi cuối kỳ	7.5	CLO2
-CLO3	CLO2
-CLO3	- Giảng viên hướng dẫn cách trình bày báo cáo (có thể thuyết trình nhóm/ngắn gọn tùy lớp) 
-- Tổng kết, đánh giá học phần và phản hồi cho sinh viên 
-- Hướng dẫn sinh viên lập kế hoạch học tập cá nhân dựa trên trải nghiệm thực tế	- Trình bày nội dung báo cáo (bằng văn bản, thuyết trình trực tiếp hoặc nộp video/slideshow, tùy lớp) 
-- Viết bản tự đánh giá quá trình thực tập: kết quả đạt được, khó khăn gặp phải, kỹ năng đã học 
-- Xác định định hướng nghề nghiệp ngắn hạn/dài hạn sau đợt thực tập 
-- Nộp đầy đủ các tài liệu: báo cáo, nhật ký, bảng cam kết, phiếu nhận xét doanh nghiệp	A3 (Báo cáo cuối kỳ + thuyết trình/ ngắn gọn + bản tự đánh giá) A4 (Phiếu nhận xét từ doanh nghiệp)
-7.	Học liệu: 
-7.1. Sách, giáo trình chính thống & tham khảo: Tuỳ thuộc vào bài toán/dự án/đồ án mà sinh viên chọn lựa tài liệu phù hợp
-Sinh viên sử dụng các tài liệu phù hợp với nội dung thực tập thực tế tại doanh nghiệp. Tùy theo bài toán, quy trình hoặc công nghệ được tiếp cận, sinh viên chủ động lựa chọn tài liệu tham khảo từ:
-	Giáo trình các học phần đã học như: Kỹ thuật lập trình, Cơ sở dữ liệu, Mạng máy tính, Lập trình web, Lập trình hướng đối tượng,…
-	Tài liệu nội bộ hoặc hướng dẫn kỹ thuật do doanh nghiệp cung cấp (nếu có).
-	Tài liệu tham khảo quốc tế về kỹ năng thực tập, định hướng nghề nghiệp:
-	Get an Internship and Make the Most of It: Practical Information for High School and Community College Students – Joan E. McLachlan & Patricia Hess, Rowman & Littlefield (2013)
-	The Ultimate Guide to Internships: 100 Steps to Get a Great Internship and Thrive in It – Eric Woodard, Allworth Press (2015)
-	Internships: Theory and Practice – Andrew H. Van de Ven, Routledge (2020)
-7.2. Địa chỉ web hữu ích: Tùy thuộc vào bài toán/dự án/đồ án mà sinh viên chọn lựa tài liệu phù hợp:
-	https://www.w3schools.com – học web cơ bản
-	https://www.geeksforgeeks.org – thuật toán, lập trình
-	https://docs.github.com – hướng dẫn Git và GitHub
-	https://www.freecodecamp.org – thực hành lập trình
-	https://roadmap.sh – định hướng nghề nghiệp CNTT theo từng mảng
-	Trang tài liệu nội bộ doanh nghiệp (nếu được phép truy cập)
-8.	Cơ sở vật chất GD: 
--  Tùy theo cơ sở thực tập. 
-Ngày ký duyệt: 6/2023
-Người ký duyệt:
-Phụ trách khoa/Ngành
+1. Mục tiêu
+Giúp sinh viên tiếp cận môi trường làm việc thực tế, rèn luyện kỹ năng, thái độ nghề nghiệp để chuẩn bị cho thực tập chuyên sâu.
 
+2. Chuẩn đầu ra (CLO)
+CLO1: Hiểu mô hình tổ chức, tuân thủ nội quy, thể hiện tác phong chuyên nghiệp.
+CLO2: Có khả năng học tập, nghiên cứu dưới sự hướng dẫn.
+CLO3: Ứng dụng kiến thức để đề xuất giải pháp hoặc làm sản phẩm tại doanh nghiệp.
 
+3. Đánh giá học phần
+Chuyên cần (10%) – CLO1
+Nhật ký thực tập hàng tuần (30%) – CLO1, CLO2, CLO3
+Báo cáo cuối kỳ (50%) – CLO1, CLO2, CLO3
+Nhận xét từ doanh nghiệp (10%) – CLO1, CLO2, CLO3
+Sinh viên phải hoàn thành ít nhất 75% thời gian thực tập và nộp đủ hồ sơ (nhật ký, báo cáo, nhận xét…).
+4. Kế hoạch 10 tuần
+Tuần 1-2: Tìm hiểu doanh nghiệp, chọn đề tài quan sát
+Tuần 3-6: Quan sát, ghi nhật ký kỹ thuật, phân tích công cụ
+Tuần 7-8: Phân tích quy trình/dự án, viết báo cáo nháp
+Tuần 9-10: Hoàn thiện báo cáo, tự đánh giá, nộp hồ sơ
+5. Tài liệu học tập
+Tùy chọn theo nội dung thực tập: giáo trình đã học, tài liệu doanh nghiệp, nguồn quốc tế như:
+Get an Internship and Make the Most of It – McLachlan & Hess
+The Ultimate Guide to Internships – Eric Woodard
+Trang web hữu ích: W3Schools, GeeksforGeeks, GitHub Docs, FreeCodeCamp, Roadmap.sh
 
-	GV soạn
+6. Cơ sở vật chất
+Tùy thuộc vào đơn vị thực tập.
 
-
-	
-	
-
+Ngày phê duyệt: 06/2023
+Người duyệt: Trưởng khoa/Ngành
+Giảng viên biên soạn: [Tên giảng viên]
