@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY", "")
 
-if not GOOGLE_API_KEY:
+if not GEMINI_API_KEY:
     st.error("❌ GEMINI_API_KEY chưa được cấu hình.")
     st.stop()
 
