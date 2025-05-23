@@ -3,52 +3,38 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain.docstore.document import Document
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-# Set env for Gemini SDK
-import os
+# Lấy API key từ Streamlit Secrets và ép buộc cấu hình môi trường
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 st.title("🤖 Gemini-powered RAG Chatbot")
 
-# Load and split documents
+# Load văn bản và tách nhỏ
 loader = TextLoader("example.txt")
 docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 chunks = text_splitter.split_documents(docs)
 chunks = [c for c in chunks if len(c.page_content) < 1000]
 
-# Dùng các class mà không cần truyền google_api_key nữa:
+# Tạo danh sách văn bản
+texts = [doc.page_content for doc in chunks]
+
+# Embedding với kiểm tra toàn bộ
 embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+
+try:
+    vectors = embedding.embed_documents(texts)
+    vectordb = FAISS.from_texts(texts, embedding)
+except Exception as e:
+    st.error(f"❌ Lỗi khi tạo vector DB (Gemini Embedding): {e}")
+    vectors = []
+    vectordb = None
+
+# Tạo LLM
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
-# Thử embedding từng batch nhỏ, chỉ giữ cái thành công
-texts = []
-vectors = []
-for i, chunk in enumerate(chunks):
-    try:
-        text = chunk.page_content
-        vector = embedding.embed_documents([text])[0]
-        texts.append(text)
-        vectors.append(vector)
-    except Exception as e:
-        st.warning(f"Lỗi batch {i}: {e}")
-
-vectordb = None
-if vectors and len(vectors) > 0:
-    try:
-        vectordb = FAISS.__from(texts, vectors)
-    except Exception as e:
-        st.error(f"Không thể tạo FAISS index: {e}")
-else:
-    st.warning("Tất cả các đoạn embedding đều thất bại. Vector DB sẽ không được tạo.")
-
-# Gemini LLM
-llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
-
+# Giao diện nhập và trả lời
 query = st.text_input("Nhập câu hỏi:")
 if query and vectordb:
     docs = vectordb.similarity_search(query)
@@ -57,4 +43,4 @@ if query and vectordb:
     answer = llm.invoke(prompt)
     st.markdown(f"**📌 Trả lời:** {answer.content}")
 elif query:
-    st.warning("Không thể tạo vector DB vì tất cả các đoạn embedding đều thất bại.")
+    st.warning("⚠ Không thể truy vấn vì vector DB chưa được khởi tạo.")
