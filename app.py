@@ -23,7 +23,8 @@ texts = [doc.page_content for doc in chunks]
 
 # Embedding với kiểm tra toàn bộ
 #embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-embedding = HuggingFaceEmbeddings()
+#embedding = HuggingFaceEmbeddings()
+embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 try:
     #vectors = embedding.embed_documents(texts)
