@@ -1,48 +1,47 @@
 import os
 import streamlit as st
-from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.text_splitter import CharacterTextSplitter
 from langchain.document_loaders import TextLoader
 
-# Cấu hình môi trường
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
-os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
+# Đảm bảo khóa API tồn tại
+GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY") or st.secrets.get("GEMINI_API_KEY")
+if not GOOGLE_API_KEY:
+    st.error("🔑 GOOGLE_API_KEY chưa được thiết lập trong Settings > Secrets!")
+    st.stop()
+os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
+# Giao diện người dùng
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
-
 uploaded_file = st.file_uploader("📁 Tải file văn bản (.txt)", type="txt")
 
-if uploaded_file:
+query = st.text_input("💬 Nhập câu hỏi:")
+
+# Xử lý khi có file
+if uploaded_file and query:
     try:
-        # Lưu file
-        with open("data.txt", "wb") as f:
-            f.write(uploaded_file.read())
+        st.info("📄 Đang xử lý file...")
+        with open("temp.txt", "wb") as f:
+            f.write(uploaded_file.getvalue())
 
-        st.write("📄 Đang xử lý file...")
-
-        # Tách văn bản
-        loader = TextLoader("data.txt", encoding="utf-8")
+        loader = TextLoader("temp.txt", encoding="utf-8")
         documents = loader.load()
-        splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-        texts = splitter.split_documents(documents)
 
-        # Khởi tạo vector DB
-        st.write("📡 Đang tạo FAISS vector DB...")
+        splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+        docs = splitter.split_documents(documents)
+
+        st.info("📡 Đang tạo FAISS vector DB...")
         embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-        db = FAISS.from_documents(texts, embedding)
+        db = FAISS.from_documents(docs, embedding)
 
-        # Khởi tạo mô hình Gemini
-        llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.5)
+        retriever = db.as_retriever()
+        llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
 
-        query = st.text_input("💬 Nhập câu hỏi:")
-        if query:
-            docs = db.similarity_search(query)
-            context = "\n".join([doc.page_content for doc in docs])
-            prompt = f"Trả lời câu hỏi sau dựa vào ngữ cảnh:\n\n{context}\n\nCâu hỏi: {query}"
-            response = llm.invoke(prompt)
-            st.write("🧠 Trả lời:", response.content)
+        st.success("✅ Trả lời:")
+        result = llm.invoke(query)
+        st.write(result.content)
 
     except Exception as e:
         st.error(f"❌ Lỗi: {e}")
