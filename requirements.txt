@@ -5,4 +5,5 @@ langchain-google-genai==2.1.4
 faiss-cpu==1.11.0
 sentence-transformers==2.2.2
 torch==2.1.0
-transformers==4.40.0
+transformers==4.35.2
+protobuf==4.25.3
