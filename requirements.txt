@@ -1,10 +1,7 @@
 streamlit==1.45.0
-langchain
-langchain-community
-langchain-google-genai
-faiss-cpu
-tiktoken
-sentencepiece==0.1.99
-sentence-transformers
-transformers
-torch
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-google-genai==2.1.4
+faiss-cpu==1.11.0
+sentence-transformers==2.2.2
+torch==2.1.0
