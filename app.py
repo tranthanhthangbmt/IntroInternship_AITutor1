@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain_community.document_loaders import TextLoader
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 import os
 from dotenv import load_dotenv
@@ -14,17 +14,16 @@ st.title("🤖 Gemini-powered RAG Chatbot")
 # Load and split documents
 loader = TextLoader("example.txt")
 docs = loader.load()
-splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-chunks = splitter.split_documents(docs)
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = text_splitter.split_documents(docs)
 
-# Embedding
+# Embedding + vector DB
 embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
 vectordb = FAISS.from_documents(chunks, embedding)
 
 # Gemini LLM
 llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
 
-# UI
 query = st.text_input("Nhập câu hỏi:")
 if query:
     docs = vectordb.similarity_search(query)
