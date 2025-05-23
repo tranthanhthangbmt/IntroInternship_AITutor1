@@ -1,8 +1,9 @@
-streamlit==1.45.1
-langchain==0.3.25
-langchain-community==0.3.24
-langchain-google-genai==2.1.4
-sentence-transformers==2.2.2
+streamlit==1.28.0
+langchain==0.1.14
+langchain-community==0.0.36
+langchain-google-genai==0.0.7
 faiss-cpu==1.7.4
-torch==2.2.0
-transformers==4.39.3
+sentence-transformers==2.2.2
+torch==2.1.0
+transformers==4.38.2
+protobuf==3.20.*
