@@ -30,11 +30,10 @@ except Exception as e:
     st.error(f"❌ Lỗi khi tạo FAISS vector DB: {e}")
 
 # LLM Gemini chỉ để trả lời
-GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY", "")
+GOOGLE_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
 if not GOOGLE_API_KEY:
-    st.error("❌ Thiếu GOOGLE_API_KEY trong secrets. Vào Settings > Secrets để thêm.")
+    st.error("❌ Thiếu GEMINI_API_KEY trong secrets. Vào Settings > Secrets để thêm.")
     st.stop()
-
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
