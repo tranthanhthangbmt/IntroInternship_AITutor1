@@ -4,7 +4,7 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_community.embeddings import HuggingFaceEmbeddings  # <- Sửa lại đường dẫn đúng
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # Cấu hình môi trường
 os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
@@ -31,9 +31,7 @@ with st.spinner("📂 Đang tải dữ liệu..."):
 # Tạo vector embedding và FAISS
 with st.spinner("📡 Đang tạo FAISS vector DB..."):
     try:
-        embedding = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
-        )
+        embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
         vectordb = FAISS.from_texts(texts, embedding)
     except Exception as e:
         st.error(f"❌ Lỗi tạo FAISS DB: {e}")
@@ -53,4 +51,3 @@ if query:
             answer = llm.invoke(prompt)
             st.markdown(f"**📌 Trả lời:** {answer.content}")
         except Exception as e:
-            st.error(f"❌ Lỗi truy vấn Gemini: {e}")
