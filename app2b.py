@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 from sentence_transformers import SentenceTransformer
@@ -25,7 +25,8 @@ texts = [doc.page_content for doc in chunks]
 # Embedding bằng HuggingFace
 #embedding = HuggingFaceEmbeddings()
 model = SentenceTransformer("all-MiniLM-L6-v2")
-embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+#embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectordb = None
 
 try:
