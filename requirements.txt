@@ -3,11 +3,9 @@ langchain==0.1.16
 langchain-community==0.0.34
 langchain-core==0.1.53
 langchain-google-genai==0.0.6
-sentence-transformers==2.2.2
-transformers==4.38.1
-torch==2.1.0
 faiss-cpu==1.7.4
-numpy==1.24.3
-protobuf==4.25.3
+sentence-transformers==2.2.2
+torch==2.1.0
+transformers==4.38.1
 google-generativeai==0.3.2
-python-dotenv
+python-dotenv==1.0.1
