@@ -3,4 +3,4 @@ langchain==0.3.25
 langchain-community==0.3.24
 langchain-google-genai==2.1.4
 sentence-transformers==2.2.2
-faiss-cpu
+faiss-cpu==1.11.0
