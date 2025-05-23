@@ -4,3 +4,4 @@ langchain-community
 google-generativeai
 faiss-cpu
 tiktoken
+langchain-google-genai
