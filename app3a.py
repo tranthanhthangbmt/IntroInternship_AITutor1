@@ -6,15 +6,15 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-# Tắt watcher lỗi torch + tokenizer warning
+# Tắt cảnh báo không cần thiết
 os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-# Giao diện
+# Cấu hình giao diện
 st.set_page_config(page_title="RAG Chatbot Gemini", page_icon="🤖")
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
 
-# API key
+# Đọc GEMINI_API_KEY từ Secrets
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     st.error("❌ Thiếu GEMINI_API_KEY trong Settings > Secrets.")
@@ -29,19 +29,21 @@ with st.spinner("📂 Đang tải dữ liệu..."):
     chunks = splitter.split_documents(docs)
     texts = [c.page_content for c in chunks if len(c.page_content) < 1000]
 
-# Embedding
+# Tạo embedding và FAISS
 with st.spinner("📡 Đang tạo FAISS vector DB..."):
     try:
-        embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        embedding = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2", device="cpu"
+        )
         vectordb = FAISS.from_texts(texts, embedding)
     except Exception as e:
         st.error(f"❌ Lỗi tạo FAISS DB: {e}")
         st.stop()
 
-# Tạo LLM Gemini
+# LLM Gemini
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
-# Giao diện hỏi đáp
+# Hỏi đáp
 query = st.text_input("Nhập câu hỏi:")
 if query:
     with st.spinner("🤖 Đang trả lời..."):
