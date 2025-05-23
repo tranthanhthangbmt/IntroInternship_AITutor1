@@ -31,7 +31,7 @@ except Exception as e:
 
 # LLM Gemini chỉ để trả lời
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "")
-if not GOOGLE_API_KEY:
+if not GEMINI_API_KEY:
     st.error("❌ Thiếu GEMINI_API_KEY trong secrets. Vào Settings > Secrets để thêm.")
     st.stop()
 os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
