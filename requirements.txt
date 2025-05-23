@@ -1,5 +1,5 @@
-pip install streamlit==1.33.0
-pip install langchain==0.1.16
-pip install langchain-community==0.0.19
-pip install google-generativeai==0.3.2
-pip install faiss-cpu==1.7.4
+streamlit==1.45.1
+langchain
+langchain-community
+google-generativeai
+faiss-cpu
