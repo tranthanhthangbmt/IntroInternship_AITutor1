@@ -4,6 +4,5 @@ langchain-community
 langchain-google-genai
 faiss-cpu
 tiktoken
-sentencepiece>=0.1.95
-# XÓA HOẶC COMMENT: sentence-transformers nếu không cần
-# sentence-transformers==2.2.0
+sentencepiece==0.1.96  # ✅ dùng bản này hoặc 0.1.95
+# sentence-transformers==2.2.0  # nếu không dùng thì bỏ
