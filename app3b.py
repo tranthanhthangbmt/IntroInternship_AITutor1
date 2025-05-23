@@ -9,15 +9,17 @@ from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 
 # Load biến môi trường từ file .env hoặc streamlit secrets
+# This correctly loads from .env for local development and st.secrets for Streamlit Cloud.
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY", "")
 
 if not GEMINI_API_KEY:
-    st.error("❌ GEMINI_API_KEY chưa được cấu hình.")
+    st.error("❌ GEMINI_API_KEY chưa được cấu hình. Vui lòng cấu hình trong biến môi trường hoặc Streamlit Secrets.")
     st.stop()
 
+# Set the environment variable for Langchain to use
 os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
-os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
+os.environ["STREAMLIT_WATCHER_TYPE"] = "none" # Often good for deployment
 
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
 
@@ -29,6 +31,7 @@ if uploaded_file:
     try:
         st.info("📄 Đang xử lý file...")
 
+        # Save the uploaded file temporarily
         with open("data.txt", "wb") as f:
             f.write(uploaded_file.read())
 
