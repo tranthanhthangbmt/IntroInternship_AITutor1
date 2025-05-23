@@ -17,6 +17,8 @@ chunks = [c for c in chunks if len(c.page_content) < 1000]
 texts = [doc.page_content for doc in chunks]
 
 # Embedding bằng HuggingFace
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 embedding = HuggingFaceEmbeddings()
 vectordb = None
 
