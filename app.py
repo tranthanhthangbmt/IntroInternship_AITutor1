@@ -1,37 +1,36 @@
 import streamlit as st
-import os
-
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain_community.embeddings import GoogleGenerativeAIEmbeddings
-from langchain.chat_models import ChatGoogleGenerativeAI
-from langchain.chains import RetrievalQA
+from langchain.chains.question_answering import load_qa_chain
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-# Cấu hình API Gemini
-os.environ["GOOGLE_API_KEY"] = st.secrets["GEMINI_API_KEY"]
+import os
+from dotenv import load_dotenv
 
-st.title("💡 RAG với Gemini API")
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-@st.cache_resource
-def load_chain():
-    loader = TextLoader("data/data.txt")
-    docs = loader.load()
-    splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-    chunks = splitter.split_documents(docs)
+st.title("🤖 Gemini-powered RAG Chatbot")
 
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    db = FAISS.from_documents(chunks, embeddings)
-    retriever = db.as_retriever()
+# Load and split documents
+loader = TextLoader("example.txt")
+docs = loader.load()
+text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = text_splitter.split_documents(docs)
 
-    llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
-    qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
-    return qa
+# Embedding with Gemini
+embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
+vectordb = FAISS.from_documents(chunks, embedding)
 
-qa_chain = load_chain()
+# QA chain using Gemini
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY)
+chain = load_qa_chain(llm, chain_type="stuff")
 
-query = st.text_input("❓ Câu hỏi của bạn:")
+# Query from user
+query = st.text_input("Nhập câu hỏi bạn muốn biết:")
 if query:
-    answer = qa_chain.run(query)
-    st.write("📌 Trả lời:")
-    st.write(answer)
+    docs = vectordb.similarity_search(query)
+    answer = chain.run(input_documents=docs, question=query)
+    st.markdown(f"**📌 Trả lời:** {answer}")
