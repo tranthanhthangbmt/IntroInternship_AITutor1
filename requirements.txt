@@ -4,4 +4,7 @@ langchain-community
 langchain-google-genai
 faiss-cpu
 tiktoken
-# sentence-transformers==2.2.0  # nếu không dùng thì bỏ
+sentencepiece==0.1.99
+sentence-transformers
+transformers
+torch
