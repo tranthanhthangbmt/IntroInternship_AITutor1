@@ -8,7 +8,10 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+# Set env for Gemini SDK
+import os
+os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+
 st.title("🤖 Gemini-powered RAG Chatbot")
 
 # Load and split documents
@@ -18,8 +21,9 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 chunks = text_splitter.split_documents(docs)
 chunks = [c for c in chunks if len(c.page_content) < 1000]
 
-# Embedding
-embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
+# Dùng các class mà không cần truyền google_api_key nữa:
+embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
 # Thử embedding từng batch nhỏ, chỉ giữ cái thành công
 texts = []
