@@ -10,13 +10,13 @@ from dotenv import load_dotenv
 
 # Load biến môi trường từ file .env hoặc streamlit secrets
 load_dotenv()
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY", "")
 
 if not GOOGLE_API_KEY:
-    st.error("❌ GOOGLE_API_KEY chưa được cấu hình.")
+    st.error("❌ GEMINI_API_KEY chưa được cấu hình.")
     st.stop()
 
-os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
 os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
 
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
