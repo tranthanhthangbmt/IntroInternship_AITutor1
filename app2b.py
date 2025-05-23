@@ -24,7 +24,7 @@ texts = [doc.page_content for doc in chunks]
 
 # Embedding bằng HuggingFace
 #embedding = HuggingFaceEmbeddings()
-model = SentenceTransformer("all-MiniLM-L6-v2")
+#model = SentenceTransformer("all-MiniLM-L6-v2")
 #embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 #embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -48,7 +48,13 @@ if query and vectordb:
     docs = vectordb.similarity_search(query)
     context = "\n\n".join([d.page_content for d in docs])
     prompt = f"Dựa trên văn bản sau, hãy trả lời câu hỏi:\n\n{context}\n\nCâu hỏi: {query}"
-    answer = llm.invoke(prompt)
+    #answer = llm.invoke(prompt)
+    try:
+        answer = llm.invoke(prompt)
+        st.markdown(f"**📌 Trả lời:** {answer.content}")
+    except Exception as e:
+        st.error(f"❌ Lỗi khi gọi Gemini API: {e}")
+
     st.markdown(f"**📌 Trả lời:** {answer.content}")
 elif query:
     st.warning("⚠ Không thể truy vấn vì vector DB chưa được khởi tạo.")
