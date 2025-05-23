@@ -4,3 +4,4 @@ langchain-community
 langchain-google-genai
 faiss-cpu
 tiktoken
+sentence-transformers==2.3.1  # <- chỉ bật nếu cần thiết, cẩn thận với Python 3.13
