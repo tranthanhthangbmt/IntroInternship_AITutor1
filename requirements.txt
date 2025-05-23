@@ -5,7 +5,7 @@ langchain-core==0.1.53
 langchain-google-genai==0.0.6
 faiss-cpu==1.7.4
 sentence-transformers==2.2.2
-torch==2.1.0 # Keep this version as it was in your original requirements
-transformers==4.38.1 # Keep this version as it was in your original requirements
+torch==2.1.0
+transformers==4.38.1
 google-generativeai==0.3.2
 python-dotenv==1.0.1
