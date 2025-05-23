@@ -5,45 +5,35 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.docstore.document import Document
 
-import os
-
-st.set_page_config(page_title="RAG Chatbot - HuggingFace + Gemini LLM")
-
 st.title("🤖 RAG Chatbot - HuggingFace + Gemini LLM")
-st.markdown("### 📁 Tải file văn bản (.txt)")
-uploaded_file = st.file_uploader("Upload file", type=["txt"])
 
+uploaded_file = st.file_uploader("📁 Tải file văn bản (.txt)", type="txt")
 question = st.text_input("💬 Nhập câu hỏi:")
 
 if uploaded_file and question:
     try:
-        st.info("📄 Đang xử lý file...")
-        text = uploaded_file.read().decode("utf-8")
-        docs = [Document(page_content=text)]
-
-        splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        chunks = splitter.split_documents(docs)
+        # Load & chunk text
+        raw_text = uploaded_file.read().decode("utf-8")
+        splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        docs = splitter.split_documents([Document(page_content=raw_text)])
 
         st.info("📡 Đang tạo FAISS vector DB...")
-        embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-        vectordb = FAISS.from_documents(chunks, embedding)
+        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        db = FAISS.from_documents(docs, embeddings)
 
-        retriever = vectordb.as_retriever()
+        # Gemini
+        api_key = st.secrets["GEMINI_API_KEY"]
+        llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+        retriever = db.as_retriever()
 
-        st.info("💡 Đang gọi Gemini LLM...")
-        llm = ChatGoogleGenerativeAI(
-            model="gemini-pro",
-            google_api_key=st.secrets["GEMINI_API_KEY"]
-        )
+        # Answer
+        context_docs = retriever.get_relevant_documents(question)
+        context_text = "\n".join([d.page_content for d in context_docs])
+        prompt = f"Trả lời câu hỏi sau dựa trên văn bản:\n---\n{context_text}\n---\nCâu hỏi: {question}"
+        answer = llm.invoke(prompt)
 
-        retrieved_docs = retriever.get_relevant_documents(question)
-        context = "\n".join([doc.page_content for doc in retrieved_docs])
-
-        prompt = f"Với ngữ cảnh sau:\n{context}\n\nTrả lời câu hỏi: {question}"
-        response = llm.invoke(prompt)
-
-        st.success("✅ Kết quả:")
-        st.write(response.content)
+        st.success("✅ Trả lời:")
+        st.write(answer.content)
 
     except Exception as e:
         st.error(f"❌ Lỗi: {e}")
