@@ -50,7 +50,8 @@ if uploaded_file:
         retriever = db.as_retriever()
 
         # Khởi tạo mô hình Gemini LLM
-        llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
+        #llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
+        llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-lite", temperature=0.3)
         
         # Tạo chuỗi RetrievalQA
         qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
