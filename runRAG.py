@@ -1,3 +1,5 @@
+import os
+os.environ["STREAMLIT_WATCH_DIRECTORIES_USE_POLLING"] = "true"
 import streamlit as st
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
