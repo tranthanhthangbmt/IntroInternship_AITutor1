@@ -1,7 +1,7 @@
-langchain==0.3.25
-langchain-core==0.3.61
+langchain==0.1.13
+langchain-core==0.1.30
 langchain-community==0.0.35
-langchain-text-splitters==0.3.8
+langchain-text-splitters==0.0.1
 
 sentence-transformers==2.2.2
 huggingface_hub==0.14.1
