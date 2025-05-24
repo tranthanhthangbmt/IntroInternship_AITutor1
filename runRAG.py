@@ -1,5 +1,6 @@
 import os
-os.environ["STREAMLIT_WATCH_DIRECTORIES_USE_POLLING"] = "true"
+os.environ["STREAMLIT_WATCHDOG_MODE"] = "poll"
+
 import streamlit as st
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
