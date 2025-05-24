@@ -5,6 +5,7 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from google.generativeai import GenerativeModel, configure
 import json
+import pickle
 
 # 🔐 Cấu hình API key từ Streamlit secrets
 configure(api_key=st.secrets["GEMINI_API_KEY"])
@@ -13,17 +14,8 @@ configure(api_key=st.secrets["GEMINI_API_KEY"])
 llm = GenerativeModel("models/gemini-2.0-flash-lite")
 
 # 🧠 Load FAISS index từ thư mục đã lưu
-#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-#vectorstore = FAISS.load_local("data_output/faiss_index", embeddings=embedding)
-from langchain.vectorstores import FAISS
-import pickle
-import json
-
 with open("data_output/faiss_index/index.pkl", "rb") as f:
     vectorstore = pickle.load(f)
-
-# Sau đó dùng vectorstore như bình thường...
-
 
 # 📄 Load văn bản gốc (nếu muốn hiển thị)
 with open("data_output/source_documents.json", "r", encoding="utf-8") as f:
@@ -49,3 +41,4 @@ if query:
     # Tuỳ chọn: hiển thị lại context
     with st.expander("📄 Ngữ cảnh đã dùng"):
         st.write(context)
+
