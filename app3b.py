@@ -8,6 +8,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 
+from sentence_transformers import SentenceTransformer
+from langchain.embeddings import HuggingFaceEmbeddings
+
 # Load biến môi trường từ file .env hoặc streamlit secrets
 # This correctly loads from .env for local development and st.secrets for Streamlit Cloud.
 load_dotenv()
@@ -45,7 +48,10 @@ if uploaded_file:
 
         st.info("📡 Đang tạo FAISS vector DB...")
         # Tạo embeddings sử dụng mô hình HuggingFace
-        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        #embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        model = SentenceTransformer("all-MiniLM-L6-v2")
+        embeddings = HuggingFaceEmbeddings(model=model)
+
         db = FAISS.from_documents(docs, embeddings)
         retriever = db.as_retriever()
 
