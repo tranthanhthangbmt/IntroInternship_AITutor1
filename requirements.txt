@@ -8,4 +8,6 @@ torch==2.1.0
 transformers==4.38.1
 google-generativeai==0.3.2
 python-dotenv==1.0.1
-sentence-transformers==2.2.1
+sentence-transformers==2.2.2
+huggingface_hub==0.17.3
+
