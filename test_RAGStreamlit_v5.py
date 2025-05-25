@@ -49,7 +49,7 @@ embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-M
 
 # Load FAISS index từ thư mục mới
 vectorstore = FAISS.load_local(
-    "IntroInternshipRAG_MiniLM_L3",
+    "IntroInternshipRAG_MiniLM_L3/faiss_index",
     embeddings=embedding,
     allow_dangerous_deserialization=True
 )
