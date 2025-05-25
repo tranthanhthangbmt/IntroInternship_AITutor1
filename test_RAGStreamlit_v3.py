@@ -3,7 +3,9 @@ import os
 os.environ["STREAMLIT_WATCH_FILE_SYSTEM"] = "false"
 import streamlit as st
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+#from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
 from google.generativeai import GenerativeModel, configure
 
 #audio
