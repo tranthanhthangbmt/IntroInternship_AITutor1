@@ -1,6 +1,8 @@
 # ✅ Mới:
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+#!from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 from google.generativeai import GenerativeModel, configure
 
 # Cấu hình API key Gemini
@@ -10,7 +12,8 @@ configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")  # ✅ Thay bằng 
 model = GenerativeModel("models/gemini-2.0-flash-lite")
 
 # Load FAISS index đã lưu
-embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+#!embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
 vectorstore = FAISS.load_local(
     "data_output/faiss_index",
     embeddings=embedding,
