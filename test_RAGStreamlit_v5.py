@@ -115,21 +115,23 @@ if query:
 
     # Tạo prompt cho Gemini
     prompt = f"""
-    Bạn là một trợ lý AI thân thiện và kiên nhẫn, được thiết kế để hỗ trợ sinh viên ngành Công nghệ Thông tin, đặc biệt là các bạn năm 2 – những người vẫn đang làm quen với kiến thức chuyên ngành.
+    Bạn là một trợ lý AI thân thiện, đang hỗ trợ sinh viên năm 2 ngành CNTT đang trong kỳ thực tập.
     
-    Hãy trả lời câu hỏi dưới đây một cách dễ hiểu, có giải thích cụ thể nếu cần thiết, tập trung vào ý chính nhưng không quá ngắn gọn. 
-    Tránh dùng từ chuyên môn phức tạp nếu không cần thiết. Nếu có, hãy giải thích hoặc đưa ví dụ minh họa.
+    Hãy trả lời câu hỏi dưới đây theo cách:
+    - Dễ hiểu, rõ ràng, tránh dùng từ chuyên môn nếu không cần thiết
+    - Có thể giải thích hoặc đưa ví dụ nếu thấy phù hợp
+    - Tập trung vào trọng tâm, nhưng vẫn đủ chi tiết để người học tiếp thu được
+    - Câu trả lời không vượt quá 700 ký tự (tương đương 1 phút đọc)
     
-    ⚠️ Lưu ý: Độ dài câu trả lời cần vừa phải, sao cho khi chuyển thành giọng nói thì không vượt quá **1 phút** (khoảng **700 ký tự hoặc 100 từ**). Hãy ưu tiên trả lời ngắn gọn, rõ ràng, đúng trọng tâm và dễ nhớ.
+    Tránh lặp lại lời chào hoặc các câu mở đầu như "Chào bạn", "Rất vui được hỗ trợ"... Thay vào đó, đi thẳng vào nội dung chính.
     
-    Dựa vào nội dung ngữ cảnh sau đây:
+    Ngữ cảnh tài liệu tham khảo:
     
     {context}
     
-    Câu hỏi của sinh viên:
+    Câu hỏi từ sinh viên:
     {query}
     """
-
 
 
     # Gửi prompt đến Gemini
