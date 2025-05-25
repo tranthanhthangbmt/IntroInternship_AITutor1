@@ -7,6 +7,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from google.generativeai import GenerativeModel, configure
 
 #audio
+import edge_tts
 from modules.audio_module import generate_and_encode_audio
 
 def render_audio_block(text: str, autoplay=False):
