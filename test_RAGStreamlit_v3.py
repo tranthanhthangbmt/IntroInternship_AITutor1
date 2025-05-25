@@ -13,7 +13,9 @@ configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")
 model = GenerativeModel("models/gemini-2.0-flash-lite")
 
 # Load FAISS index
-embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
+#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
+embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
+
 vectorstore = FAISS.load_local(
     "IntroInternshipRAG/faiss_index",
     embeddings=embedding,
