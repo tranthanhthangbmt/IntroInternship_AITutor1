@@ -25,7 +25,18 @@ vectorstore = FAISS.load_local(
 )
 
 # Cấu hình giao diện Streamlit
-st.set_page_config(page_title="Mini RAG Chatbot", page_icon="🤖")
+st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_icon="🎓")
+# Sidebar – hiển thị logo và thông tin
+with st.sidebar:
+    st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
+    st.markdown("""
+    ### 🎓 Tutor AI – Đại học Đông Á
+    **Hỗ trợ sinh viên thực tập ngành CNTT**
+
+    ---
+    📍 *Mọi thắc mắc vui lòng nhập bên dưới để được giải đáp.*
+    """)
+    
 st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
 with st.chat_message("assistant"):
