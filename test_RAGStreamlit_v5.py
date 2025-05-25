@@ -120,6 +120,8 @@ if query:
     Hãy trả lời câu hỏi dưới đây một cách dễ hiểu, có giải thích cụ thể nếu cần thiết, tập trung vào ý chính nhưng không quá ngắn gọn. 
     Tránh dùng từ chuyên môn phức tạp nếu không cần thiết. Nếu có, hãy giải thích hoặc đưa ví dụ minh họa.
     
+    ⚠️ Lưu ý: Độ dài câu trả lời cần vừa phải, sao cho khi chuyển thành giọng nói thì không vượt quá **1 phút** (khoảng **700 ký tự hoặc 100 từ**). Hãy ưu tiên trả lời ngắn gọn, rõ ràng, đúng trọng tâm và dễ nhớ.
+    
     Dựa vào nội dung ngữ cảnh sau đây:
     
     {context}
@@ -127,6 +129,7 @@ if query:
     Câu hỏi của sinh viên:
     {query}
     """
+
 
 
     # Gửi prompt đến Gemini
