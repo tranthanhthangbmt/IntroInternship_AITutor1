@@ -79,25 +79,36 @@ with st.sidebar:
     
 st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
-with st.chat_message("assistant"):
+
+if "messages" not in st.session_state:
     intro_text = """
-    Xin chào, tôi là **Tutor AI – Trợ lý ảo đồng hành cùng bạn trong kỳ Thực tập Nhận Thức. Tôi sẽ hỗ trợ bạn trong suốt quá trình thực tập với các vai trò:
+        Xin chào, tôi là **Tutor AI – Trợ lý ảo đồng hành cùng bạn trong kỳ Thực tập Nhận Thức. Tôi sẽ hỗ trợ bạn trong suốt quá trình thực tập với các vai trò:
+        
+        - Giải đáp về nội dung, yêu cầu và lịch trình thực tập
+        - Hướng dẫn cách ghi **nhật ký**, viết **báo cáo**, sử dụng **mẫu biểu** đúng chuẩn
+        - Cung cấp kiến thức nền tảng về **văn hóa doanh nghiệp CNTT**, kỹ năng làm việc chuyên nghiệp
+        - Giới thiệu về **chuyển đổi số trong doanh nghiệp**, vai trò của **AI, dữ liệu và tự động hóa**
+        - Gợi ý và hướng dẫn đề tài thực tế như: ứng dụng AI hỗ trợ nghiệp vụ, chatbot nội bộ, quản lý tài liệu số, phân tích dữ liệu khách hàng, hệ thống phản hồi thông minh...
+        
+        Hãy đặt câu hỏi bên dưới – tôi luôn sẵn sàng hỗ trợ bạn!
+        """
+    st.session_state.messages = [
+        {"role": "assistant", "text": intro_text}
+    ]
     
-    - Giải đáp về nội dung, yêu cầu và lịch trình thực tập
-    - Hướng dẫn cách ghi **nhật ký**, viết **báo cáo**, sử dụng **mẫu biểu** đúng chuẩn
-    - Cung cấp kiến thức nền tảng về **văn hóa doanh nghiệp CNTT**, kỹ năng làm việc chuyên nghiệp
-    - Giới thiệu về **chuyển đổi số trong doanh nghiệp**, vai trò của **AI, dữ liệu và tự động hóa**
-    - Gợi ý và hướng dẫn đề tài thực tế như: ứng dụng AI hỗ trợ nghiệp vụ, chatbot nội bộ, quản lý tài liệu số, phân tích dữ liệu khách hàng, hệ thống phản hồi thông minh...
+#with st.chat_message("assistant"):
+for idx, msg in enumerate(st.session_state.messages):
+    with st.chat_message("assistant"):
+        st.markdown(msg["text"])
+        if idx == 0 and st.session_state.get("enable_audio_playback", False):
+            render_audio_block(msg["text"], autoplay=True)   
     
-    Hãy đặt câu hỏi bên dưới – tôi luôn sẵn sàng hỗ trợ bạn!
-    """
+    # # Hiển thị phần giới thiệu
+    # st.markdown(intro_text)
     
-    # Hiển thị phần giới thiệu
-    st.markdown(intro_text)
-    
-    # Nếu bật âm thanh, phát giới thiệu
-    if st.session_state.get("enable_audio_playback", False):
-        render_audio_block(intro_text, autoplay=True)
+    # # Nếu bật âm thanh, phát giới thiệu
+    # if st.session_state.get("enable_audio_playback", False):
+    #     render_audio_block(intro_text, autoplay=True)
 
 # Khởi tạo session state để lưu lịch sử chat
 if "chat_history" not in st.session_state:
