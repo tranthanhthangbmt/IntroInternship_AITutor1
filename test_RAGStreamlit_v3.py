@@ -21,7 +21,14 @@ def render_audio_block(text: str, autoplay=False):
     """, unsafe_allow_html=True)
 
 # ⚠️ Cấu hình API key Gemini (thay bằng key thực tế hoặc dùng dotenv)
-configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")
+#configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")
+import streamlit as st
+from google.generativeai import configure
+
+configure(api_key=st.secrets["GEMINI_API_KEY"])
+if "GEMINI_API_KEY" not in st.secrets:
+    st.error("❌ Thiếu khóa API Gemini. Vui lòng khai báo trong Settings > Secrets.")
+    st.stop()
 
 # Khởi tạo model Gemini
 model = GenerativeModel("models/gemini-2.0-flash-lite")
