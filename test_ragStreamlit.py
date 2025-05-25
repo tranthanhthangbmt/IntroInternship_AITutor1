@@ -35,12 +35,12 @@ if query:
     context = "\n".join([doc.page_content for doc in docs])
 
     # Tạo prompt cho Gemini
-    prompt = f"""Answer the following question based on the context below:
+    prompt = f"""Trả lời câu hỏi sau dựa trên ngữ cảnh dưới đây:
 
-    Context:
+    Ngữ cảnh:
     {context}
 
-    Question:
+    Câu hỏi:
     {query}
     """
     # Gửi prompt đến Gemini
