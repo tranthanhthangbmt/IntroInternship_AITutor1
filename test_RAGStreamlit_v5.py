@@ -174,3 +174,23 @@ for chat in st.session_state.chat_history:
         st.markdown(chat["answer"])
         if st.session_state.get("enable_audio_playback", False):
             render_audio_block(chat["answer"], autoplay=True)
+
+#phần greeting không được phát ngay lập tức, mà được phát sau khi Streamlit render xong toàn bộ UI, bằng cách chờ vài trăm mili giây (delay) trước khi chạy render_audio_block().
+import time
+# Phát greeting sau khi UI render xong, chỉ chạy 1 lần
+if (
+    not st.session_state.get("greeting_played", False)
+    and st.session_state.get("enable_audio_playback", False)
+    and st.session_state.messages
+):
+    greeting_text = st.session_state.messages[0]["text"]
+    placeholder = st.empty()
+    
+    # Chờ cho UI render xong
+    time.sleep(0.3)
+
+    # Phát âm thanh intro
+    with placeholder:
+        render_audio_block(greeting_text, autoplay=True)
+
+    st.session_state["greeting_played"] = True
