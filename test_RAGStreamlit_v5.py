@@ -79,47 +79,25 @@ with st.sidebar:
     
 st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
-
-if "messages" not in st.session_state:
+with st.chat_message("assistant"):
     intro_text = """
-        Xin chào, tôi là **Tutor AI – Trợ lý ảo đồng hành cùng bạn trong kỳ Thực tập Nhận Thức. Tôi sẽ hỗ trợ bạn trong suốt quá trình thực tập với các vai trò:
-        
-        - Giải đáp về nội dung, yêu cầu và lịch trình thực tập
-        - Hướng dẫn cách ghi **nhật ký**, viết **báo cáo**, sử dụng **mẫu biểu** đúng chuẩn
-        - Cung cấp kiến thức nền tảng về **văn hóa doanh nghiệp CNTT**, kỹ năng làm việc chuyên nghiệp
-        - Giới thiệu về **chuyển đổi số trong doanh nghiệp**, vai trò của **AI, dữ liệu và tự động hóa**
-        - Gợi ý và hướng dẫn đề tài thực tế như: ứng dụng AI hỗ trợ nghiệp vụ, chatbot nội bộ, quản lý tài liệu số, phân tích dữ liệu khách hàng, hệ thống phản hồi thông minh...
-        
-        Hãy đặt câu hỏi bên dưới – tôi luôn sẵn sàng hỗ trợ bạn!
-        """
-    st.session_state.messages = [
-        {"role": "assistant", "text": intro_text}
-    ]
-
-# Phát greeting bên ngoài chat_message (ngay đầu trang) để đảm bảo Streamlit render sớm
-if st.session_state.get("enable_audio_playback", False):
-    if "greeting_played" not in st.session_state:
-        st.session_state["greeting_played"] = True
-        greeting_text = st.session_state.messages[0]["text"]
-        render_audio_block(greeting_text, autoplay=True)
-
-# Hiển thị chat như bình thường
-for msg in st.session_state.messages:
-    with st.chat_message("assistant"):
-        st.markdown(msg["text"])
-#with st.chat_message("assistant"):
-# for idx, msg in enumerate(st.session_state.messages):
-#     with st.chat_message("assistant"):
-#         st.markdown(msg["text"])
-#         if idx == 0 and st.session_state.get("enable_audio_playback", False):
-#             render_audio_block(msg["text"], autoplay=True)   
+    Xin chào, tôi là **Tutor AI – Trợ lý ảo đồng hành cùng bạn trong kỳ Thực tập Nhận Thức. Tôi sẽ hỗ trợ bạn trong suốt quá trình thực tập với các vai trò:
     
-    # # Hiển thị phần giới thiệu
-    # st.markdown(intro_text)
+    - Giải đáp về nội dung, yêu cầu và lịch trình thực tập
+    - Hướng dẫn cách ghi **nhật ký**, viết **báo cáo**, sử dụng **mẫu biểu** đúng chuẩn
+    - Cung cấp kiến thức nền tảng về **văn hóa doanh nghiệp CNTT**, kỹ năng làm việc chuyên nghiệp
+    - Giới thiệu về **chuyển đổi số trong doanh nghiệp**, vai trò của **AI, dữ liệu và tự động hóa**
+    - Gợi ý và hướng dẫn đề tài thực tế như: ứng dụng AI hỗ trợ nghiệp vụ, chatbot nội bộ, quản lý tài liệu số, phân tích dữ liệu khách hàng, hệ thống phản hồi thông minh...
     
-    # # Nếu bật âm thanh, phát giới thiệu
-    # if st.session_state.get("enable_audio_playback", False):
-    #     render_audio_block(intro_text, autoplay=True)
+    Hãy đặt câu hỏi bên dưới – tôi luôn sẵn sàng hỗ trợ bạn!
+    """
+    
+    # Hiển thị phần giới thiệu
+    st.markdown(intro_text)
+    
+    # Nếu bật âm thanh, phát giới thiệu
+    if st.session_state.get("enable_audio_playback", False):
+        render_audio_block(intro_text, autoplay=True)
 
 # Khởi tạo session state để lưu lịch sử chat
 if "chat_history" not in st.session_state:
@@ -174,23 +152,3 @@ for chat in st.session_state.chat_history:
         st.markdown(chat["answer"])
         if st.session_state.get("enable_audio_playback", False):
             render_audio_block(chat["answer"], autoplay=True)
-
-#phần greeting không được phát ngay lập tức, mà được phát sau khi Streamlit render xong toàn bộ UI, bằng cách chờ vài trăm mili giây (delay) trước khi chạy render_audio_block().
-import time
-# Phát greeting sau khi UI render xong, chỉ chạy 1 lần
-if (
-    not st.session_state.get("greeting_played", False)
-    and st.session_state.get("enable_audio_playback", False)
-    and st.session_state.messages
-):
-    greeting_text = st.session_state.messages[0]["text"]
-    placeholder = st.empty()
-    
-    # Chờ cho UI render xong
-    time.sleep(0.3)
-
-    # Phát âm thanh intro
-    with placeholder:
-        render_audio_block(greeting_text, autoplay=True)
-
-    st.session_state["greeting_played"] = True
