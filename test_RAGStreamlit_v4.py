@@ -1,4 +1,5 @@
 #run: streamlit run test_RAGStreamlit.py
+st.set_option("client.showErrorDetails", False)
 import os
 os.environ["STREAMLIT_WATCH_FILE_SYSTEM"] = "false"
 import streamlit as st
@@ -51,7 +52,7 @@ st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_
 with st.sidebar:
     st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
     if "enable_audio_playback" not in st.session_state:
-        st.session_state["enable_audio_playback"] = True  # mặc định bật
+        st.session_state["enable_audio_playback"] = False  # mặc định bật
     
     st.session_state["enable_audio_playback"] = st.sidebar.checkbox(
         "🔊 Tự động phát âm thanh",
@@ -99,7 +100,7 @@ query = st.chat_input("❓ Nhập câu hỏi của bạn:")
 
 if query:
     # Truy xuất ngữ cảnh liên quan
-    docs = vectorstore.similarity_search(query, k=6)
+    docs = vectorstore.similarity_search(query, k=3)
     context = "\n".join([doc.page_content for doc in docs])
 
     # Tạo prompt cho Gemini
