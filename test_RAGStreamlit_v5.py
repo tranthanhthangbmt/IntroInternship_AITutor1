@@ -115,24 +115,24 @@ if query:
 
     # Tạo prompt cho Gemini
     prompt = f"""
-    Bạn là một trợ lý AI thân thiện, đang hỗ trợ sinh viên năm 2 ngành CNTT đang trong kỳ thực tập.
+    Bạn là một trợ lý AI thân thiện, đang hỗ trợ sinh viên năm 2 ngành CNTT trong kỳ thực tập.
     
     Hãy trả lời câu hỏi dưới đây theo cách:
-    - Dễ hiểu, rõ ràng, tránh dùng từ chuyên môn nếu không cần thiết
-    - Có thể giải thích hoặc đưa ví dụ nếu thấy phù hợp
-    - Tập trung vào trọng tâm, nhưng vẫn đủ chi tiết để người học tiếp thu được
-    - Câu trả lời không vượt quá 700 ký tự (tương đương 1 phút đọc)
+    - Dễ hiểu, rõ ràng, giải thích chi tiết nếu cần
+    - Tránh từ chuyên môn nếu không cần thiết; nếu có, hãy giải thích thêm hoặc đưa ví dụ minh họa
+    - Ưu tiên sử dụng thông tin từ tài liệu tham khảo nếu có liên quan
+    - Nếu thông tin trong tài liệu không đủ hoặc không rõ, bạn có thể sử dụng kiến thức nền tảng từ bên ngoài để đưa ra câu trả lời phù hợp và chính xác
+    - Đảm bảo câu trả lời không vượt quá 700 ký tự (tương đương 1 phút đọc)
     
-    Tránh lặp lại lời chào hoặc các câu mở đầu như "Chào bạn", "Rất vui được hỗ trợ"... Thay vào đó, đi thẳng vào nội dung chính.
+    Tránh lặp lại lời chào hoặc mở đầu như "Chào bạn", "Rất vui được hỗ trợ..." – hãy đi thẳng vào nội dung chính.
     
-    Ngữ cảnh tài liệu tham khảo:
+    Tài liệu nội bộ (nếu có liên quan):
     
     {context}
     
-    Câu hỏi từ sinh viên:
+    Câu hỏi của sinh viên:
     {query}
     """
-
 
     # Gửi prompt đến Gemini
     response = model.generate_content(prompt)
