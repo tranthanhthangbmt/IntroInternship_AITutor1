@@ -104,12 +104,12 @@ if query:
 
     # Tạo prompt cho Gemini
     prompt = f"""
-    Bạn là trợ lý AI đang hỗ trợ sinh viên thực tập CNTT.
-    Hãy trả lời câu hỏi dưới đây một cách chi tiết, chính xác và dễ hiểu nhất, dựa trên các thông tin có trong tài liệu:
-
+    Bạn là trợ lý AI dành cho sinh viên CNTT. 
+    Hãy trả lời ngắn gọn, rõ ràng và thực tế, chỉ tập trung vào ý chính trong ngữ cảnh sau:
+    
     Ngữ cảnh:
     {context}
-
+    
     Câu hỏi:
     {query}
     """
