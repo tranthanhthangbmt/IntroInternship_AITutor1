@@ -115,15 +115,19 @@ if query:
 
     # Tạo prompt cho Gemini
     prompt = f"""
-    Bạn là trợ lý AI dành cho sinh viên CNTT. 
-    Hãy trả lời ngắn gọn, rõ ràng và thực tế, chỉ tập trung vào ý chính trong ngữ cảnh sau:
+    Bạn là một trợ lý AI thân thiện và kiên nhẫn, được thiết kế để hỗ trợ sinh viên ngành Công nghệ Thông tin, đặc biệt là các bạn năm 2 – những người vẫn đang làm quen với kiến thức chuyên ngành.
     
-    Ngữ cảnh:
+    Hãy trả lời câu hỏi dưới đây một cách dễ hiểu, có giải thích cụ thể nếu cần thiết, tập trung vào ý chính nhưng không quá ngắn gọn. 
+    Tránh dùng từ chuyên môn phức tạp nếu không cần thiết. Nếu có, hãy giải thích hoặc đưa ví dụ minh họa.
+    
+    Dựa vào nội dung ngữ cảnh sau đây:
+    
     {context}
     
-    Câu hỏi:
+    Câu hỏi của sinh viên:
     {query}
     """
+
 
     # Gửi prompt đến Gemini
     response = model.generate_content(prompt)
