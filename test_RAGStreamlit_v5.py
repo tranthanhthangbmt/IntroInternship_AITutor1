@@ -95,13 +95,24 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role": "assistant", "text": intro_text}
     ]
-    
-#with st.chat_message("assistant"):
-for idx, msg in enumerate(st.session_state.messages):
+
+# Phát greeting bên ngoài chat_message (ngay đầu trang) để đảm bảo Streamlit render sớm
+if st.session_state.get("enable_audio_playback", False):
+    if "greeting_played" not in st.session_state:
+        st.session_state["greeting_played"] = True
+        greeting_text = st.session_state.messages[0]["text"]
+        render_audio_block(greeting_text, autoplay=True)
+
+# Hiển thị chat như bình thường
+for msg in st.session_state.messages:
     with st.chat_message("assistant"):
         st.markdown(msg["text"])
-        if idx == 0 and st.session_state.get("enable_audio_playback", False):
-            render_audio_block(msg["text"], autoplay=True)   
+#with st.chat_message("assistant"):
+# for idx, msg in enumerate(st.session_state.messages):
+#     with st.chat_message("assistant"):
+#         st.markdown(msg["text"])
+#         if idx == 0 and st.session_state.get("enable_audio_playback", False):
+#             render_audio_block(msg["text"], autoplay=True)   
     
     # # Hiển thị phần giới thiệu
     # st.markdown(intro_text)
