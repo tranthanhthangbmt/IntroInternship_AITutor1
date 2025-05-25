@@ -6,6 +6,19 @@ from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from google.generativeai import GenerativeModel, configure
 
+#audio
+from modules.audio_module import generate_and_encode_audio
+
+def render_audio_block(text: str, autoplay=False):
+    b64 = generate_and_encode_audio(text)
+    autoplay_attr = "autoplay" if autoplay else ""
+    st.markdown(f"""
+    <audio controls {autoplay_attr}>
+        <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+        Trình duyệt của bạn không hỗ trợ phát âm thanh.
+    </audio>
+    """, unsafe_allow_html=True)
+
 # ⚠️ Cấu hình API key Gemini (thay bằng key thực tế hoặc dùng dotenv)
 configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")
 
@@ -29,6 +42,14 @@ st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_
 # Sidebar – hiển thị logo và thông tin
 with st.sidebar:
     st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
+    if "enable_audio_playback" not in st.session_state:
+        st.session_state["enable_audio_playback"] = True  # mặc định bật
+    
+    st.session_state["enable_audio_playback"] = st.sidebar.checkbox(
+        "🔊 Tự động phát âm thanh",
+        value=st.session_state["enable_audio_playback"]
+    )
+
     st.markdown("""
     ### 🎓 Tutor AI – Đại học Đông Á
     **Hỗ trợ sinh viên thực tập ngành CNTT**
@@ -40,23 +61,30 @@ with st.sidebar:
 st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
 with st.chat_message("assistant"):
-    st.markdown("""
+    intro_text = """
     👋 **Xin chào!**  
     Tôi là **Tutor AI** – trợ lý ảo hỗ trợ sinh viên thực hiện **Thực tập Nhận Thức ngành Công nghệ Thông tin** tại Trường Đại học Đông Á.
-
+    
     🎯 Nhiệm vụ của tôi:
     - Hướng dẫn bạn nắm rõ nội dung, yêu cầu và lịch trình thực tập
     - Tư vấn cách ghi nhật ký, viết báo cáo đúng chuẩn
     - Trả lời các câu hỏi liên quan đến: **mẫu biểu**, **đánh giá**, **báo cáo tuần**, **thái độ - kỹ năng nghề nghiệp**
     - Giải thích quy trình thực tập và giúp bạn định hướng nghề nghiệp
-
+    
     ✏️ Hãy nhập câu hỏi bên dưới như:
     - “Cần nộp những biểu mẫu nào trong thực tập?”
     - “Mẫu nhật ký thực tập viết thế nào?”
     - “Bài toán thực tập là gì? Làm sao để chọn?”
     
     Tôi luôn sẵn sàng đồng hành cùng bạn trong suốt 10 tuần thực tập 🤝
-    """)
+    """
+    
+    # Hiển thị phần giới thiệu
+    st.markdown(intro_text)
+    
+    # Nếu bật âm thanh, phát giới thiệu
+    if st.session_state.get("enable_audio_playback", False):
+        render_audio_block(intro_text, autoplay=True)
 
 # Khởi tạo session state để lưu lịch sử chat
 if "chat_history" not in st.session_state:
@@ -100,3 +128,5 @@ for chat in st.session_state.chat_history:
         st.markdown(chat["question"])
     with st.chat_message("ai"):
         st.markdown(chat["answer"])
+        if st.session_state.get("enable_audio_playback", False):
+            render_audio_block(chat["answer"], autoplay=True)
