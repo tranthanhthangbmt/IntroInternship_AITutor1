@@ -39,10 +39,14 @@ model = GenerativeModel("models/gemini-2.0-flash-lite")
 #embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
 #embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
 #embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
-embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
 
-
-
+#kiểm tra chiều vector FAISS trước khi truy vấn:
+if vectorstore.index.d != embedding.embed_query("test").shape[0]:
+    st.error("❌ Lỗi: Embedding dimension không khớp với FAISS index. Vui lòng đồng bộ mô hình embedding.")
+    st.stop()
+    
 vectorstore = FAISS.load_local(
     "IntroInternshipRAG/faiss_index",
     embeddings=embedding,
