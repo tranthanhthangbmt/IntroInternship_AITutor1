@@ -1,5 +1,4 @@
 #run: streamlit run test_RAGStreamlit.py
-st.set_option("client.showErrorDetails", False)
 import os
 os.environ["STREAMLIT_WATCH_FILE_SYSTEM"] = "false"
 import streamlit as st
@@ -48,6 +47,7 @@ vectorstore = FAISS.load_local(
 
 # Cấu hình giao diện Streamlit
 st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_icon="🎓")
+st.set_option("client.showErrorDetails", False)
 # Sidebar – hiển thị logo và thông tin
 with st.sidebar:
     st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
