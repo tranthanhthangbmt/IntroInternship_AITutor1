@@ -70,22 +70,23 @@ st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
 with st.chat_message("assistant"):
     intro_text = """
-    👋 **Xin chào!**  
+    **Xin chào!**  
     Tôi là **Tutor AI** – trợ lý ảo hỗ trợ sinh viên thực hiện **Thực tập Nhận Thức ngành Công nghệ Thông tin** tại Trường Đại học Đông Á.
     
-    🎯 Nhiệm vụ của tôi:
+    **Nhiệm vụ của tôi:**
     - Hướng dẫn bạn nắm rõ nội dung, yêu cầu và lịch trình thực tập
     - Tư vấn cách ghi nhật ký, viết báo cáo đúng chuẩn
     - Trả lời các câu hỏi liên quan đến: **mẫu biểu**, **đánh giá**, **báo cáo tuần**, **thái độ - kỹ năng nghề nghiệp**
     - Giải thích quy trình thực tập và giúp bạn định hướng nghề nghiệp
     
-    ✏️ Hãy nhập câu hỏi bên dưới như:
+    **Hãy nhập câu hỏi bên dưới như:**
     - “Cần nộp những biểu mẫu nào trong thực tập?”
     - “Mẫu nhật ký thực tập viết thế nào?”
     - “Bài toán thực tập là gì? Làm sao để chọn?”
     
-    Tôi luôn sẵn sàng đồng hành cùng bạn trong suốt 10 tuần thực tập 🤝
+    Tôi luôn sẵn sàng đồng hành cùng bạn trong suốt 10 tuần thực tập.
     """
+
     
     # Hiển thị phần giới thiệu
     st.markdown(intro_text)
