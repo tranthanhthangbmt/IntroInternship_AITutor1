@@ -35,23 +35,26 @@ if "GEMINI_API_KEY" not in st.secrets:
 # Khởi tạo model Gemini
 model = GenerativeModel("models/gemini-2.0-flash-lite")
 
-# Load FAISS index
-#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
-#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
-#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
-#embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# Khởi tạo embedding
 embedding = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-MiniLM-L3-v2")
 
-#kiểm tra chiều vector FAISS trước khi truy vấn:
-if vectorstore.index.d != embedding.embed_query("test").shape[0]:
-    st.error("❌ Lỗi: Embedding dimension không khớp với FAISS index. Vui lòng đồng bộ mô hình embedding.")
-    st.stop()
-    
+# Tải FAISS index
 vectorstore = FAISS.load_local(
     "IntroInternshipRAG/faiss_index",
     embeddings=embedding,
     allow_dangerous_deserialization=True
 )
+
+# ✅ Kiểm tra chiều vector FAISS khớp với embedding
+try:
+    dim_index = vectorstore.index.d
+    dim_embedding = embedding.embed_query("test").shape[0]
+    if dim_index != dim_embedding:
+        st.error(f"❌ Lỗi: FAISS index dimension ({dim_index}) không khớp với embedding ({dim_embedding}).")
+        st.stop()
+except Exception as e:
+    st.error(f"⚠️ Không thể kiểm tra FAISS index: {e}")
+    st.stop()
 
 # Cấu hình giao diện Streamlit
 st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_icon="🎓")
