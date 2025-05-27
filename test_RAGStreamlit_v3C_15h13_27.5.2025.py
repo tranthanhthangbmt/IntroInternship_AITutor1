@@ -27,8 +27,6 @@ from modules.audio_module import render_audio_block
 
 
 # ⚠️ Cấu hình API key Gemini (thay bằng key thực tế hoặc dùng dotenv)
-#configure(api_key="AIzaSyB23c7ttZ-RWiqj9O4dY82NutHsjz0N45s")
-
 import streamlit as st
 from google.generativeai import configure
 
@@ -36,13 +34,6 @@ configure(api_key=st.secrets["GEMINI_API_KEY"])
 if "GEMINI_API_KEY" not in st.secrets:
     st.error("❌ Thiếu khóa API Gemini. Vui lòng khai báo trong Settings > Secrets.")
     st.stop()
-
-# import time
-
-# long_text = "Xin chào, tôi là Tutor AI..." * 30  # tạo đoạn dài
-# start = time.time()
-# b64 = generate_and_encode_audio(long_text)
-# print("Thời gian tạo âm:", time.time() - start)
 
 # Khởi tạo model Gemini
 model = GenerativeModel("models/gemini-2.0-flash-lite")
@@ -78,7 +69,7 @@ st.set_option("client.showErrorDetails", False)
 with st.sidebar:
     st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
     if "enable_audio_playback" not in st.session_state:
-        st.session_state["enable_audio_playback"] = False  # mặc định bật
+        st.session_state["enable_audio_playback"] = True  # mặc định bật
     
     st.session_state["enable_audio_playback"] = st.sidebar.checkbox(
         "🔊 Tự động phát âm thanh",
