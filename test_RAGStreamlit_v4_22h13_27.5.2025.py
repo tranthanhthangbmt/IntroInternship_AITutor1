@@ -108,18 +108,19 @@ with st.sidebar:
 
     st.markdown("""
     ### 🎓 Tutor AI – Đại học Đông Á
-    **Hỗ trợ sinh viên thực tập nhận thức ngành CNTT**
+    **Trợ lý ảo đồng hành cùng sinh viên năm 2 trong kỳ thực tập nhận thức ngành Công nghệ Thông tin**
     
-    📍 Mọi thắc mắc vui lòng nhập bên dưới để được giải đáp.
+    📌 Vui lòng nhập câu hỏi bên dưới để được hỗ trợ kịp thời, chính xác và dễ hiểu.
     
     ---
-    #### 📌 Thông tin
-    - Powered by Gemini + FAISS
-    - Version: 1.0.0
-
+    #### ℹ️ Thông tin hệ thống
+    - Nền tảng: Gemini + FAISS
+    - Phiên bản: 1.0.0
+    
     ---
-    © 2025 Khoa CNTT, Đại học Đông Á. All rights reserved.
+    © 2025 Khoa Công nghệ Thông tin, Đại học Đông Á. Mọi quyền được bảo lưu.
     """)
+
     
     # st.markdown("""
     # ### 🎓 Tutor AI – Đại học Đông Á
