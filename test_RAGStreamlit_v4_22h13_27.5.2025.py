@@ -89,7 +89,7 @@ st.set_option("client.showErrorDetails", False)
 with st.sidebar:
     st.image("https://raw.githubusercontent.com/tranthanhthangbmt/AITutor_Gemini/main/LOGO_UDA_2023_VN_EN_chuan2.png", width=180)
     if "enable_audio_playback" not in st.session_state:
-        st.session_state["enable_audio_playback"] = False  # mặc định bật
+        st.session_state["enable_audio_playback"] = True  # mặc định bật
     
     st.session_state["enable_audio_playback"] = st.sidebar.checkbox(
         "🔊 Tự động phát âm thanh",
