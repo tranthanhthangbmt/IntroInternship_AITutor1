@@ -195,8 +195,8 @@ if query:
     context = "\n\n".join({doc.page_content for doc in docs_vi + docs_en})
 
 
-    print("📄 Context được dùng:")
-    print(context)
+    # print("📄 Context được dùng:")
+    # print(context)
 
     # Tạo prompt cho Gemini
     # prompt = f"""
