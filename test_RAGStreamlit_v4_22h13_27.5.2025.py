@@ -108,9 +108,16 @@ with st.sidebar:
 
     st.markdown("""
     ### 🎓 Tutor AI – Đại học Đông Á
-    **Trợ lý ảo đồng hành cùng sinh viên năm 2 trong kỳ thực tập nhận thức ngành Công nghệ Thông tin**
+    **Trợ lý ảo đồng hành cùng sinh viên năm 2 trong kỳ thực tập nhận thức ngành Công nghệ Thông tin tại doanh nghiệp**
     
-    📌 Vui lòng nhập câu hỏi bên dưới để được hỗ trợ kịp thời, chính xác và dễ hiểu.
+    💡 Bạn sẽ được hỗ trợ về:
+    - Nội dung, yêu cầu và lịch trình thực tập
+    - Hướng dẫn ghi nhật ký, viết báo cáo và sử dụng biểu mẫu
+    - Kiến thức về văn hóa doanh nghiệp CNTT, kỹ năng làm việc chuyên nghiệp
+    - Tổng quan về chuyển đổi số, vai trò của AI, dữ liệu và tự động hóa
+    - Gợi ý đề tài thực tế tại doanh nghiệp
+    
+    📍 Vui lòng nhập câu hỏi bên dưới để được hỗ trợ nhanh chóng, chính xác và dễ hiểu.
     
     ---
     #### ℹ️ Thông tin hệ thống
@@ -120,6 +127,7 @@ with st.sidebar:
     ---
     © 2025 Khoa Công nghệ Thông tin, Đại học Đông Á. Mọi quyền được bảo lưu.
     """)
+
 
     
     # st.markdown("""
