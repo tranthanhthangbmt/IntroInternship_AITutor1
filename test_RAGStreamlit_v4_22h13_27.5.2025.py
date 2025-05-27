@@ -81,7 +81,17 @@ vectorstore = FAISS.load_local(
     allow_dangerous_deserialization=True
 )
 
+def summarize_chat_history(history, max_turns=3):
+    if not history:
+        return ""
 
+    recent_turns = history[-max_turns:]
+    summary = ""
+    for turn in recent_turns:
+        summary += f"Sinh viên: {turn['question']}\n"
+        summary += f"Tutor: {turn['answer']}\n"
+    return summary.strip()
+    
 # Cấu hình giao diện Streamlit
 st.set_page_config(page_title="Tutor AI – Hỗ trợ Thực tập CNTT", page_icon="🎓")
 st.set_option("client.showErrorDetails", False)
@@ -194,35 +204,14 @@ if query:
     # context = f"{context_vi}\n\n{context_en}"
     context = "\n\n".join({doc.page_content for doc in docs_vi + docs_en})
 
-
-    # print("📄 Context được dùng:")
-    # print(context)
-
-    # Tạo prompt cho Gemini
-    # prompt = f"""
-    # Bạn là một trợ lý AI thân thiện, đang hỗ trợ sinh viên năm 2 ngành CNTT trong kỳ thực tập.
-    
-    # Hãy trả lời câu hỏi dưới đây theo cách:
-    # - Dễ hiểu, rõ ràng, giải thích chi tiết nếu cần
-    # - Tránh từ chuyên môn nếu không cần thiết; nếu có, hãy giải thích thêm hoặc đưa ví dụ minh họa
-    # - Ưu tiên sử dụng thông tin từ tài liệu tham khảo nếu có liên quan
-    # - Nếu thông tin trong tài liệu không đủ hoặc không rõ, bạn có thể sử dụng kiến thức nền tảng từ bên ngoài để đưa ra câu trả lời phù hợp và chính xác
-    # - Đảm bảo câu trả lời không vượt quá 700 ký tự (tương đương 1 phút đọc)
-    
-    # Tránh lặp lại lời chào hoặc mở đầu như "Chào bạn", "Rất vui được hỗ trợ..." – hãy đi thẳng vào nội dung chính.
-    
-    # Tài liệu nội bộ (bằng tiếng Anh, nếu có):
-    
-    # {context}
-    
-    # Câu hỏi của sinh viên (bằng tiếng Việt):
-    # {query}
-    # Nếu cần, bạn có thể dùng thông tin tiếng Anh để suy luận và trả lời bằng tiếng Việt.
-    # """
+    #Tạo history_summary trước khi tạo prompt
+    history_summary = summarize_chat_history(st.session_state.chat_history, max_turns=2)
     
     prompt = f"""
     Bạn là một trợ lý AI thân thiện, đang hỗ trợ sinh viên năm 2 ngành CNTT trong kỳ thực tập.
-
+    Dưới đây là phần hội thoại gần đây giữa sinh viên và bạn:
+    {history_summary}
+    
     Hãy trả lời câu hỏi dưới đây dựa trên thông tin tài liệu nếu có:
     - Giải thích rõ ràng, dễ hiểu
     - Trả lời bằng tiếng Việt
@@ -240,7 +229,6 @@ if query:
     Câu hỏi của sinh viên:
     {query}
     """
-
 
     # Gửi prompt đến Gemini
     response = model.generate_content(prompt)
