@@ -108,11 +108,26 @@ with st.sidebar:
 
     st.markdown("""
     ### 🎓 Tutor AI – Đại học Đông Á
-    **Hỗ trợ sinh viên thực tập ngành CNTT**
+    **Hỗ trợ sinh viên thực tập nhận thức ngành CNTT**
+    
+    📍 Mọi thắc mắc vui lòng nhập bên dưới để được giải đáp.
+    
+    ---
+    #### 📌 Thông tin
+    - Powered by Gemini + FAISS
+    - Version: 1.0.0
 
     ---
-    📍 *Mọi thắc mắc vui lòng nhập bên dưới để được giải đáp.*
+    © 2025 Khoa CNTT, Đại học Đông Á. All rights reserved.
     """)
+    
+    # st.markdown("""
+    # ### 🎓 Tutor AI – Đại học Đông Á
+    # **Hỗ trợ sinh viên thực tập ngành CNTT**
+
+    # ---
+    # 📍 *Mọi thắc mắc vui lòng nhập bên dưới để được giải đáp.*
+    # """)
     
 st.title("🎓 Tutor AI - Hỗ trợ Thực tập CNTT")
 #st.caption("Tìm kiếm ngữ cảnh bằng FAISS & trả lời với Gemini 2.0")
