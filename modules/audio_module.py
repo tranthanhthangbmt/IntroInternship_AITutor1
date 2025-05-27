@@ -114,7 +114,7 @@ def render_audio_block(text: str, autoplay=True):
         return
 
     end = time.time()
-    st.caption(f"⏱️ Đã tạo âm thanh trong {round(end - start, 2)} giây")
+    #st.caption(f"⏱️ Đã tạo âm thanh trong {round(end - start, 2)} giây")
 
     audio_id = f"audio_{int(time.time())}"
     audio_html = f"""
