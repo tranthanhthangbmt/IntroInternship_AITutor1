@@ -1,3 +1,4 @@
+gdown
 edge-tts
 streamlit
 aiohappyeyeballs==2.6.1
