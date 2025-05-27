@@ -8,7 +8,7 @@ from google.generativeai import GenerativeModel, configure
 
 #audio
 import edge_tts
-from modules.audio_module import generate_and_encode_audio
+from modules.audio_module_v1 import generate_and_encode_audio
 
 def render_audio_block(text: str, autoplay=True):
     b64 = generate_and_encode_audio(text)
