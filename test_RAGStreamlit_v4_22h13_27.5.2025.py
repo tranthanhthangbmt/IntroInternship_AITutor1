@@ -157,8 +157,8 @@ with st.chat_message("assistant"):
     st.markdown(intro_text)
     
     # Nếu bật âm thanh, phát giới thiệu
-    # if st.session_state.get("enable_audio_playback", False):
-    #     render_audio_block(intro_text, autoplay=True)
+    if st.session_state.get("enable_audio_playback", False):
+        render_audio_block(intro_text, autoplay=True)
 
 # Khởi tạo session state để lưu lịch sử chat
 if "chat_history" not in st.session_state:
